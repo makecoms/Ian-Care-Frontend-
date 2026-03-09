@@ -279,33 +279,25 @@ const Journey = () => {
                                 <X size={20} />
                             </button>
 
-                            {/* Image or Video */}
+                            {/* Featured Image */}
                             <div className="relative h-80 overflow-hidden rounded-t-3xl bg-slate-100">
-                                {selectedStory.videoUrl ? (
-                                    isDirectVideoFile(selectedStory.videoUrl) ? (
-                                        <video
-                                            src={selectedStory.videoUrl.startsWith('http') ? selectedStory.videoUrl : `${API_BASE_URL}${selectedStory.videoUrl}`}
-                                            controls
-                                            className="w-full h-full object-contain bg-black"
+                                <img
+                                    src={getImageUrl(selectedStory.image)}
+                                    alt={selectedStory.name}
+                                    className="w-full h-full object-cover"
+                                />
+                                {selectedStory.videoUrl && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group">
+                                        <a
+                                            href={selectedStory.videoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1A6B96] shadow-2xl transform hover:scale-110 transition-all border border-white/20"
+                                            title="Watch Video"
                                         >
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    ) : (
-                                        <iframe
-                                            src={getEmbedUrl(selectedStory.videoUrl)}
-                                            title={selectedStory.name}
-                                            className="w-full h-full"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        ></iframe>
-                                    )
-                                ) : (
-                                    <img
-                                        src={getImageUrl(selectedStory.image)}
-                                        alt={selectedStory.name}
-                                        className="w-full h-full object-cover"
-                                    />
+                                            <Play size={40} fill="currentColor" className="ml-2" />
+                                        </a>
+                                    </div>
                                 )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
                                 <div className="absolute bottom-8 left-8 right-8 pointer-events-none">
