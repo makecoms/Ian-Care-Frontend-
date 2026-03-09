@@ -125,11 +125,17 @@ const Journey = () => {
                                                 alt={story.name}
                                                 className="w-full h-full object-cover"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-2">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-2 relative">
                                                 <h3 className="text-xs font-bold text-white line-clamp-1 flex items-center gap-1">
-                                                    {story.videoUrl && <Play size={10} fill="currentColor" />}
                                                     {story.name}
                                                 </h3>
+                                                {story.videoUrl && (
+                                                    <div className="absolute bottom-2 right-2">
+                                                        <div className="w-6 h-6 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-lg">
+                                                            <Play size={12} fill="currentColor" className="ml-0.5" />
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
 
@@ -166,13 +172,14 @@ const Journey = () => {
                                                 alt={story.name}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-center justify-center">
-                                                {story.videoUrl && (
-                                                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-transform">
-                                                        <Play size={24} fill="currentColor" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                                            {story.videoUrl && (
+                                                <div className="absolute bottom-4 right-4 z-10">
+                                                    <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-all border border-white/20">
+                                                        <Play size={24} fill="currentColor" className="ml-1" />
                                                     </div>
-                                                )}
-                                            </div>
+                                                </div>
+                                            )}
                                             <div className="absolute bottom-4 left-4 right-4">
                                                 <h3 className="text-2xl font-bold text-white mb-1">{story.name}</h3>
                                                 <div className="flex items-center gap-2 text-white/80 text-sm">

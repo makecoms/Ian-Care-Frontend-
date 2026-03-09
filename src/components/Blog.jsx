@@ -132,9 +132,9 @@ const Blog = () => {
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
                                             {blogs[0].videoUrl && (
-                                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">
-                                                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-transform">
-                                                        <Play size={32} fill="currentColor" />
+                                                <div className="absolute bottom-6 right-6 z-10">
+                                                    <div className="w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-all border border-white/20">
+                                                        <Play size={28} fill="currentColor" className="ml-1" />
                                                     </div>
                                                 </div>
                                             )}
@@ -192,9 +192,9 @@ const Blog = () => {
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                                             {blog.videoUrl && (
-                                                <div className="absolute inset-0 flex items-center justify-center group-hover:bg-black/20 transition-all">
-                                                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-lg transform group-hover:scale-110 transition-transform">
-                                                        <Play size={20} fill="currentColor" />
+                                                <div className="absolute bottom-3 right-3 z-10">
+                                                    <div className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#1A6B96] shadow-lg transform group-hover:scale-110 transition-all border border-white/20">
+                                                        <Play size={20} fill="currentColor" className="ml-0.5" />
                                                     </div>
                                                 </div>
                                             )}
