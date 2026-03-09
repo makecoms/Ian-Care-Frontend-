@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, Calendar, Heart } from 'lucide-react';
+import { ArrowRight, X, Calendar, Heart, Play } from 'lucide-react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -110,7 +110,10 @@ const Journey = () => {
                                                 className="w-full h-full object-cover"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-2">
-                                                <h3 className="text-xs font-bold text-white line-clamp-1">{story.name}</h3>
+                                                <h3 className="text-xs font-bold text-white line-clamp-1 flex items-center gap-1">
+                                                    {story.videoUrl && <Play size={10} fill="currentColor" />}
+                                                    {story.name}
+                                                </h3>
                                             </div>
                                         </div>
 
@@ -147,7 +150,13 @@ const Journey = () => {
                                                 alt={story.name}
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-center justify-center">
+                                                {story.videoUrl && (
+                                                    <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-transform">
+                                                        <Play size={24} fill="currentColor" />
+                                                    </div>
+                                                )}
+                                            </div>
                                             <div className="absolute bottom-4 left-4 right-4">
                                                 <h3 className="text-2xl font-bold text-white mb-1">{story.name}</h3>
                                                 <div className="flex items-center gap-2 text-white/80 text-sm">

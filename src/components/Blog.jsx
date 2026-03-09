@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, X, Calendar, User, Tag } from 'lucide-react';
+import { ArrowRight, X, Calendar, User, Tag, Play } from 'lucide-react';
 import axios from 'axios';
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -110,12 +110,19 @@ const Blog = () => {
                                         className="bg-white rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-200/60 border border-slate-100 flex flex-col lg:flex-row cursor-pointer hover:shadow-3xl transition-all group"
                                         onClick={() => setSelectedBlog(blogs[0])}
                                     >
-                                        <div className="lg:w-1/2 h-64 lg:h-auto overflow-hidden">
+                                        <div className="lg:w-1/2 h-64 lg:h-auto overflow-hidden relative group">
                                             <img
                                                 src={getImageUrl(blogs[0].image)}
                                                 alt={blogs[0].title}
                                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                             />
+                                            {blogs[0].videoUrl && (
+                                                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-all">
+                                                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-xl transform group-hover:scale-110 transition-transform">
+                                                        <Play size={32} fill="currentColor" />
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="lg:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                                             <div className="flex items-center gap-4 text-sm text-slate-500 mb-6">
@@ -169,6 +176,13 @@ const Blog = () => {
                                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                                            {blog.videoUrl && (
+                                                <div className="absolute inset-0 flex items-center justify-center group-hover:bg-black/20 transition-all">
+                                                    <div className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-[#1A6B96] shadow-lg transform group-hover:scale-110 transition-transform">
+                                                        <Play size={20} fill="currentColor" />
+                                                    </div>
+                                                </div>
+                                            )}
                                             <div className="absolute top-2 left-2 md:top-4 md:left-4">
                                                 <span className="bg-[#FDB913] text-white px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider">
                                                     Updates
